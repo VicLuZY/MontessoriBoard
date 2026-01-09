@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Montessori Board Self-Study | Vancouver, BC</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1b1b1f;
+      --muted: #5c5f66;
+      --accent: #2a6f5a;
+      --accent-soft: #dff1ea;
+      --warm: #f8f5f1;
+      --card: #ffffff;
+      --border: #d8dde3;
+      --shadow: 0 12px 30px rgba(27, 27, 31, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: var(--warm);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(120deg, #215a4b, #3c8a6c);
+      color: #fff;
+      padding: 48px 24px 56px;
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .hero {
+      display: grid;
+      gap: 24px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 4vw, 3.3rem);
+    }
+
+    .hero p {
+      margin: 0;
+      font-size: 1.1rem;
+      max-width: 720px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn.primary {
+      background: #fff;
+      color: #245f4f;
+      box-shadow: var(--shadow);
+    }
+
+    .btn.secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    }
+
+    main {
+      padding: 32px 0 80px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .tab {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--accent);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .tab-panel {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+
+    .accordion-button {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .accordion-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+    }
+
+    .accordion-panel.open {
+      max-height: 360px;
+      margin-top: 12px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .checklist label {
+      display: flex;
+      gap: 10px;
+      padding: 8px 0;
+      align-items: flex-start;
+    }
+
+    .checklist input {
+      margin-top: 4px;
+    }
+
+    .progress-bar {
+      height: 10px;
+      border-radius: 999px;
+      background: #e4e9ee;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .progress-bar span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    .quiz {
+      display: grid;
+      gap: 16px;
+    }
+
+    .quiz button {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #fff;
+      cursor: pointer;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .quiz button.correct {
+      border-color: #2a6f5a;
+      background: #e6f4ef;
+    }
+
+    .quiz button.incorrect {
+      border-color: #ba1a1a;
+      background: #ffebe9;
+    }
+
+    .resource-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .resource-list li {
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--border);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    footer {
+      background: #1b1b1f;
+      color: #fff;
+      padding: 32px 0;
+    }
+
+    footer a {
+      color: #c5f0df;
+    }
+
+    @media (max-width: 720px) {
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container hero">
+      <div>
+        <span class="pill">Board Self-Study Hub · Vancouver, BC</span>
+        <h1>Montessori Daycare Board Member Self-Study</h1>
+        <p>
+          A guided, interactive learning portal to help board members understand Montessori principles,
+          governance responsibilities, and the unique context of early learning in Vancouver.
+        </p>
+      </div>
+      <div class="hero-actions">
+        <button class="btn primary" data-scroll="overview">Start the journey</button>
+        <button class="btn secondary" data-scroll="progress">Track my progress</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="container" id="overview">
+      <div class="grid two">
+        <div class="card">
+          <h3>Learning Pathway</h3>
+          <p>
+            This self-study experience blends Montessori pedagogy, strategic oversight, and community
+            stewardship. Each module includes reflection prompts, resources, and action checklists.
+          </p>
+          <div class="tabs" role="tablist" aria-label="Learning pathway tabs">
+            <button class="tab" role="tab" aria-selected="true" data-tab="foundations">Foundations</button>
+            <button class="tab" role="tab" aria-selected="false" data-tab="operations">Operations</button>
+            <button class="tab" role="tab" aria-selected="false" data-tab="community">Community</button>
+          </div>
+          <div class="tab-panel active" id="foundations" role="tabpanel">
+            <p><strong>Focus:</strong> Montessori philosophy, child development, and trauma-informed care.</p>
+            <ul>
+              <li>Prepared environment and multi-age learning</li>
+              <li>Observation, independence, and peace education</li>
+              <li>BC Early Learning Framework alignment</li>
+            </ul>
+          </div>
+          <div class="tab-panel" id="operations" role="tabpanel">
+            <p><strong>Focus:</strong> governance, compliance, and risk stewardship.</p>
+            <ul>
+              <li>Licensing, health, and safety requirements</li>
+              <li>Financial oversight and resource allocation</li>
+              <li>Board roles and decision-making cadence</li>
+            </ul>
+          </div>
+          <div class="tab-panel" id="community" role="tabpanel">
+            <p><strong>Focus:</strong> partnerships, equity, and advocacy in Vancouver.</p>
+            <ul>
+              <li>Relationships with families and educators</li>
+              <li>Indigenous reconciliation commitments</li>
+              <li>Community partnerships and local grants</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Upcoming Board Dialogues</h3>
+          <p>Use these prompts to anchor discussion at the next board meeting.</p>
+          <div class="accordion">
+            <div class="accordion-item">
+              <button class="accordion-button" type="button">
+                How do we measure Montessori fidelity beyond the classroom?
+                <span>+</span>
+              </button>
+              <div class="accordion-panel">
+                <p>
+                  Consider educator mentorship, classroom materials refresh cycles, and how the board
+                  listens to educator voice when evaluating program quality.
+                </p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-button" type="button">
+                What does equitable access look like in Vancouver right now?
+                <span>+</span>
+              </button>
+              <div class="accordion-panel">
+                <p>
+                  Review subsidy usage, waitlist transparency, and how the daycare partners with local
+                  organizations to reach under-resourced families.
+                </p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-button" type="button">
+                How will we support educator wellness this year?
+                <span>+</span>
+              </button>
+              <div class="accordion-panel">
+                <p>
+                  Discuss staffing ratios, professional development budgets, and time for reflective
+                  practice to prevent burnout.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="progress" style="margin-top: 32px;">
+      <div class="grid two">
+        <div class="card">
+          <h3>Self-Study Checklist</h3>
+          <p>Check items as you complete them. Progress updates automatically.</p>
+          <div class="checklist" id="checklist">
+            <label><input type="checkbox" />Read the Montessori philosophy primer.</label>
+            <label><input type="checkbox" />Review Vancouver licensing and health requirements.</label>
+            <label><input type="checkbox" />Meet with the head educator for a classroom walkthrough.</label>
+            <label><input type="checkbox" />Review the annual budget and subsidy mix.</label>
+            <label><input type="checkbox" />Complete the equity and reconciliation reflection.</label>
+            <label><input type="checkbox" />Draft one board-level strategic question.</label>
+          </div>
+          <div class="progress-bar" aria-label="Checklist progress">
+            <span id="progressFill"></span>
+          </div>
+          <p id="progressText" class="pill" style="margin-top: 12px;">0% complete</p>
+        </div>
+        <div class="card">
+          <h3>Quick Knowledge Check</h3>
+          <p>Select an answer to receive immediate feedback.</p>
+          <div class="quiz" id="quiz">
+            <div>
+              <strong>Which statement best reflects Montessori governance at the board level?</strong>
+              <button data-answer="incorrect">The board manages daily classroom scheduling.</button>
+              <button data-answer="correct">The board safeguards mission, compliance, and long-term sustainability.</button>
+              <button data-answer="incorrect">The board acts as the lead educator for the program.</button>
+            </div>
+          </div>
+          <p id="quizFeedback" class="pill" style="margin-top: 12px; display: none;"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="margin-top: 32px;">
+      <div class="grid two">
+        <div class="card">
+          <h3>Vancouver Context Snapshot</h3>
+          <ul>
+            <li><strong>Licensing:</strong> Community Care and Assisted Living Act requirements apply to daycare operations.</li>
+            <li><strong>Land acknowledgment:</strong> Vancouver is on the traditional territories of the Musqueam, Squamish, and Tsleil-Waututh Nations.</li>
+            <li><strong>Key funding:</strong> Child Care Fee Reduction Initiative and Affordable Child Care Benefit.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Resource Library</h3>
+          <ul class="resource-list">
+            <li>
+              <span>Montessori Principles in Practice</span>
+              <span class="pill">PDF Guide</span>
+            </li>
+            <li>
+              <span>BC Early Learning Framework (Board Lens)</span>
+              <span class="pill">Summary</span>
+            </li>
+            <li>
+              <span>Financial Oversight Dashboard Template</span>
+              <span class="pill">Spreadsheet</span>
+            </li>
+            <li>
+              <span>Equity &amp; Inclusion Reflection Toolkit</span>
+              <span class="pill">Workshop</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container grid two">
+      <div>
+        <h3>Keep learning together.</h3>
+        <p>
+          This self-study site is designed to evolve with your board. Add resources, update
+          policy notes, and keep the conversation centered on children, families, and educators.
+        </p>
+      </div>
+      <div>
+        <h4>Contact &amp; Commitments</h4>
+        <p>Email: board@montessorivancouver.ca</p>
+        <p>Meeting cadence: Monthly · Working groups quarterly</p>
+        <p>
+          <a href="#overview">Back to top</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const tabButtons = document.querySelectorAll(".tab");
+    const tabPanels = document.querySelectorAll(".tab-panel");
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        tabButtons.forEach((btn) => btn.setAttribute("aria-selected", "false"));
+        tabPanels.forEach((panel) => panel.classList.remove("active"));
+        button.setAttribute("aria-selected", "true");
+        const target = document.getElementById(button.dataset.tab);
+        if (target) {
+          target.classList.add("active");
+        }
+      });
+    });
+
+    document.querySelectorAll(".accordion-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const panel = button.parentElement.querySelector(".accordion-panel");
+        const indicator = button.querySelector("span");
+        const isOpen = panel.classList.toggle("open");
+        indicator.textContent = isOpen ? "−" : "+";
+      });
+    });
+
+    const checklist = document.getElementById("checklist");
+    const progressFill = document.getElementById("progressFill");
+    const progressText = document.getElementById("progressText");
+
+    function updateProgress() {
+      const inputs = checklist.querySelectorAll("input[type=checkbox]");
+      const completed = Array.from(inputs).filter((input) => input.checked).length;
+      const percent = Math.round((completed / inputs.length) * 100);
+      progressFill.style.width = `${percent}%`;
+      progressText.textContent = `${percent}% complete`;
+    }
+
+    checklist.addEventListener("change", updateProgress);
+
+    const quiz = document.getElementById("quiz");
+    const quizFeedback = document.getElementById("quizFeedback");
+
+    quiz.addEventListener("click", (event) => {
+      if (event.target.tagName !== "BUTTON") {
+        return;
+      }
+      quiz.querySelectorAll("button").forEach((btn) => {
+        btn.classList.remove("correct", "incorrect");
+      });
+      const isCorrect = event.target.dataset.answer === "correct";
+      event.target.classList.add(isCorrect ? "correct" : "incorrect");
+      quizFeedback.style.display = "inline-flex";
+      quizFeedback.textContent = isCorrect
+        ? "Correct! Boards guide strategy, policy, and accountability."
+        : "Not quite. Boards focus on mission, compliance, and stewardship.";
+    });
+
+    document.querySelectorAll("[data-scroll]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = document.getElementById(button.dataset.scroll);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+
+    updateProgress();
+  </script>
+</body>
+</html>
