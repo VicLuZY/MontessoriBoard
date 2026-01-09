@@ -118,6 +118,16 @@
       margin-top: 0;
     }
 
+    .section-title {
+      font-size: 1.8rem;
+      margin: 0 0 12px;
+    }
+
+    .section-intro {
+      margin: 0 0 24px;
+      color: var(--muted);
+    }
+
     .tabs {
       display: flex;
       flex-wrap: wrap;
@@ -270,6 +280,65 @@
       gap: 12px;
     }
 
+    .guide-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .guide-grid ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .note {
+      background: #fff8e6;
+      border: 1px solid #f1e1b2;
+      border-radius: 14px;
+      padding: 16px;
+      color: #5a4a16;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    .table th,
+    .table td {
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      padding: 10px 8px;
+    }
+
+    .table th {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .timeline-item span {
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
     footer {
       background: #1b1b1f;
       color: #fff;
@@ -390,6 +459,129 @@
       </div>
     </section>
 
+    <section class="container" id="complete-guide" style="margin-top: 36px;">
+      <h2 class="section-title">Complete Montessori Board Guide</h2>
+      <p class="section-intro">
+        This expanded guide brings together Montessori foundations, governance practice, Vancouver-specific
+        requirements, and a library of ready-to-use board tools. It references public domain Montessori
+        works from the early 1900s while adding modern governance and compliance expectations.
+      </p>
+      <div class="grid two">
+        <div class="card guide-grid">
+          <h3>1. Montessori Foundations (Public Domain References)</h3>
+          <p>
+            Early Montessori texts in the public domain describe a prepared environment, respect for the
+            child, and the teacher as a careful observer rather than a lecturer. Use these themes to guide
+            classroom design and board-level program reviews.
+          </p>
+          <ul>
+            <li><strong>Prepared environment:</strong> child-sized materials, orderly shelves, and calm routines.</li>
+            <li><strong>Auto-education:</strong> children learn through purposeful activity and repetition.</li>
+            <li><strong>Freedom with limits:</strong> independence grows inside clear boundaries.</li>
+            <li><strong>Observation:</strong> educators watch closely before intervening.</li>
+          </ul>
+          <div class="note">
+            Public domain sources referenced in this guide include Maria Montessori’s
+            <em>The Montessori Method</em> (1912), <em>Dr. Montessori’s Own Handbook</em> (1914),
+            and <em>The Advanced Montessori Method</em> (1917).
+          </div>
+        </div>
+        <div class="card guide-grid">
+          <h3>2. Child Development Essentials</h3>
+          <p>Board members should understand key developmental milestones to evaluate program fit.</p>
+          <ul>
+            <li><strong>Ages 0–3:</strong> sensory exploration, language absorption, attachment, and movement.</li>
+            <li><strong>Ages 3–6:</strong> practical life, grace and courtesy, early numeracy, and sound-letter work.</li>
+            <li><strong>Executive function:</strong> self-regulation, attention, and goal setting.</li>
+            <li><strong>Trauma-informed care:</strong> predictability, co-regulation, and a focus on safety.</li>
+          </ul>
+          <p class="pill">Board prompt: How do we verify that classroom materials match each developmental plane?</p>
+        </div>
+        <div class="card guide-grid">
+          <h3>3. Prepared Environment Audit</h3>
+          <ul>
+            <li>Materials are complete, repaired, and rotated on a predictable cycle.</li>
+            <li>Order flows left-to-right, simple-to-complex, concrete-to-abstract.</li>
+            <li>Classroom density supports movement without crowding.</li>
+            <li>Outdoor space offers risk-appropriate exploration and nature study.</li>
+          </ul>
+          <div class="pill-group" style="margin-top: 12px;">
+            <span class="pill">Sensorial</span>
+            <span class="pill">Practical life</span>
+            <span class="pill">Language</span>
+            <span class="pill">Math</span>
+            <span class="pill">Culture &amp; science</span>
+          </div>
+        </div>
+        <div class="card guide-grid">
+          <h3>4. Governance &amp; Compliance Blueprint</h3>
+          <ul>
+            <li><strong>Board role:</strong> mission stewardship, policy, risk, and long-term sustainability.</li>
+            <li><strong>Compliance:</strong> licensing, staff certifications, safety audits, and incident reporting.</li>
+            <li><strong>Data privacy:</strong> records retention, consent, and secure parent communications.</li>
+            <li><strong>Decision cadence:</strong> quarterly dashboards, annual strategic planning, monthly check-ins.</li>
+          </ul>
+          <p class="pill">Board prompt: Which policies need an annual review this quarter?</p>
+        </div>
+        <div class="card guide-grid">
+          <h3>5. Financial Stewardship</h3>
+          <ul>
+            <li><strong>Revenue:</strong> tuition, fee reduction funding, subsidies, grants, fundraising.</li>
+            <li><strong>Expenses:</strong> staffing ratios, benefits, rent, materials, professional development.</li>
+            <li><strong>Reserves:</strong> target 3–6 months of operating costs for stability.</li>
+            <li><strong>Dashboard:</strong> enrollment trends, cash flow, subsidy mix, staffing cost per seat.</li>
+          </ul>
+          <p class="pill">Board prompt: Are we protecting the prepared environment in the budget?</p>
+        </div>
+        <div class="card guide-grid">
+          <h3>6. People &amp; Culture</h3>
+          <ul>
+            <li><strong>Hiring:</strong> verify Montessori training credentials and mentorship needs.</li>
+            <li><strong>Wellness:</strong> paid planning time, reflective practice, and manageable ratios.</li>
+            <li><strong>Professional growth:</strong> annual development plans and peer observation cycles.</li>
+            <li><strong>Retention:</strong> transparent wages, respectful feedback culture, and recognition rituals.</li>
+          </ul>
+        </div>
+        <div class="card guide-grid">
+          <h3>7. Equity, Inclusion &amp; Reconciliation</h3>
+          <ul>
+            <li>Land acknowledgment embedded in community events and board meetings.</li>
+            <li>Sliding-scale or subsidy-friendly enrollment pathways.</li>
+            <li>Anti-bias training and inclusive materials review.</li>
+            <li>Community partnerships with local Indigenous and newcomer organizations.</li>
+          </ul>
+          <p class="pill">Board prompt: Who is missing from our waiting list and why?</p>
+        </div>
+        <div class="card guide-grid">
+          <h3>8. Family &amp; Community Engagement</h3>
+          <ul>
+            <li>Transparent communication cycles: monthly newsletter, quarterly town hall.</li>
+            <li>Family education: Montessori nights, observation days, parent coaching.</li>
+            <li>Community partnerships: library programs, local gardens, early years hubs.</li>
+            <li>Feedback loops: annual surveys, listening sessions, open-door culture.</li>
+          </ul>
+        </div>
+        <div class="card guide-grid">
+          <h3>9. Risk Management &amp; Safety</h3>
+          <ul>
+            <li>Emergency preparedness drills and crisis communication plan.</li>
+            <li>Food safety, allergy action plans, and medication protocols.</li>
+            <li>Daily health checks and clear illness exclusion guidance.</li>
+            <li>Facility inspections and preventative maintenance calendar.</li>
+          </ul>
+        </div>
+        <div class="card guide-grid">
+          <h3>10. Outcomes &amp; Accountability</h3>
+          <ul>
+            <li>Quality indicators: environment audits, staff retention, family satisfaction.</li>
+            <li>Child outcomes: engagement, independence, social-emotional growth (non-graded).</li>
+            <li>Board outcomes: policy compliance, financial health, equity commitments.</li>
+          </ul>
+          <p class="pill">Board prompt: How do we tell the story of impact without over-testing?</p>
+        </div>
+      </div>
+    </section>
+
     <section class="container" id="progress" style="margin-top: 32px;">
       <div class="grid two">
         <div class="card">
@@ -402,6 +594,11 @@
             <label><input type="checkbox" />Review the annual budget and subsidy mix.</label>
             <label><input type="checkbox" />Complete the equity and reconciliation reflection.</label>
             <label><input type="checkbox" />Draft one board-level strategic question.</label>
+            <label><input type="checkbox" />Map the prepared environment refresh calendar.</label>
+            <label><input type="checkbox" />Review the emergency and incident response plan.</label>
+            <label><input type="checkbox" />Confirm educator credential tracking.</label>
+            <label><input type="checkbox" />Set a quarterly family engagement goal.</label>
+            <label><input type="checkbox" />Update the board dashboard metrics.</label>
           </div>
           <div class="progress-bar" aria-label="Checklist progress">
             <span id="progressFill"></span>
@@ -420,6 +617,61 @@
             </div>
           </div>
           <p id="quizFeedback" class="pill" style="margin-top: 12px; display: none;"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="margin-top: 32px;">
+      <div class="grid two">
+        <div class="card guide-grid">
+          <h3>Board Calendar (Year-at-a-Glance)</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Quarter</th>
+                <th>Key Board Focus</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Q1</td>
+                <td>Strategic planning, compliance review, enrollment forecasting.</td>
+              </tr>
+              <tr>
+                <td>Q2</td>
+                <td>Budget approvals, staffing plans, professional development roadmap.</td>
+              </tr>
+              <tr>
+                <td>Q3</td>
+                <td>Family engagement events, equity review, facility maintenance.</td>
+              </tr>
+              <tr>
+                <td>Q4</td>
+                <td>Impact reporting, fundraising, policy refresh, board recruitment.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card guide-grid">
+          <h3>Montessori Observation Cycle</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span>Week 1</span>
+              <div>Educator observation notes and environment adjustments.</div>
+            </div>
+            <div class="timeline-item">
+              <span>Week 2</span>
+              <div>Team reflection on child engagement patterns and material choices.</div>
+            </div>
+            <div class="timeline-item">
+              <span>Week 3</span>
+              <div>Parent communication about emerging interests and learning goals.</div>
+            </div>
+            <div class="timeline-item">
+              <span>Week 4</span>
+              <div>Board-level review of resource needs and alignment with mission.</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -453,6 +705,47 @@
               <span>Equity &amp; Inclusion Reflection Toolkit</span>
               <span class="pill">Workshop</span>
             </li>
+            <li>
+              <span>Prepared Environment Audit Checklist</span>
+              <span class="pill">Worksheet</span>
+            </li>
+            <li>
+              <span>Staff Credential Tracker</span>
+              <span class="pill">Template</span>
+            </li>
+            <li>
+              <span>Incident Response &amp; Communication Plan</span>
+              <span class="pill">Playbook</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="margin-top: 32px;">
+      <div class="grid two">
+        <div class="card guide-grid">
+          <h3>Public Domain Reading Shelf</h3>
+          <p>
+            These classic Montessori texts are in the public domain and are often available through
+            digital archives or local libraries. They inform the core philosophy used in this guide.
+          </p>
+          <ul>
+            <li><strong>The Montessori Method</strong> (1912) — foundational explanation of the prepared environment.</li>
+            <li><strong>Dr. Montessori’s Own Handbook</strong> (1914) — practical lessons and classroom routines.</li>
+            <li><strong>The Advanced Montessori Method</strong> (1917) — deeper exploration of sensorial and academic work.</li>
+          </ul>
+        </div>
+        <div class="card guide-grid">
+          <h3>Print-First Book Recommendations (ISBN)</h3>
+          <p>
+            These resources are commonly found in print collections and may not be freely available online.
+            ISBNs are included for library requests or purchasing.
+          </p>
+          <ul>
+            <li><strong>Montessori: The Science Behind the Genius</strong> — ISBN 978-0195379032.</li>
+            <li><strong>The Montessori Toddler</strong> — ISBN 978-1523506897.</li>
+            <li><strong>Montessori: A Modern Approach</strong> — ISBN 978-0805209212.</li>
           </ul>
         </div>
       </div>
